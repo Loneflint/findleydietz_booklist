@@ -1,17 +1,13 @@
 import express from "express";
 const app = express();
 const port = 5000;
+import bookRouter from "./routes/books.js"
 
-app.get('/get', function (req, res,) {
-    res.send('get request')
-    console.log('Get successful')
-})
+app.use(express.json())
 
-app.post('/post', function (req, res,) {
-    res.send('post request')
-    console.log('Post successful')
-})
+app.use('/books', bookRouter);
 
 app.listen(port, () => {
     console.log(`listening on port http://localhost: ${port}`)
 })
+
